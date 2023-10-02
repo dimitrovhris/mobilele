@@ -1,13 +1,32 @@
 package org.softuni.mobilele.web;
 
+import org.softuni.mobilele.model.DTO.UserRegistrationDTO;
+import org.softuni.mobilele.service.UserService;
+import org.softuni.mobilele.service.impl.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class UserRegisterController {
+@RequestMapping("/users")
+public class UserRegistrationController {
+    private UserService userService;
 
-    @GetMapping("users/register")
-    public String login(){
+    public UserRegistrationController(UserServiceImpl userServiceImpl) {
+        this.userService = userServiceImpl;
+    }
+
+    @GetMapping("/register")
+    public String register(){
         return "auth-register";
     }
+
+    @PostMapping("register")
+    public String register(UserRegistrationDTO userRegistrationDTO){
+        userService.registerUser(userRegistrationDTO);
+        return "redirect:/";
+
+    }
+
 }
