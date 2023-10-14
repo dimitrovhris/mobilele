@@ -29,6 +29,9 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.28'
     runtimeOnly 'com.mysql:mysql-connector-j'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
+    implementation group: 'org.springframework.security', name: 'spring-security-crypto', version: '6.1.4'
+
 }
 
 tasks.named('test') {

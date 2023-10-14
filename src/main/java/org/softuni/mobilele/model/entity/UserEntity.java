@@ -15,7 +15,7 @@ import lombok.Setter;
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @Column
